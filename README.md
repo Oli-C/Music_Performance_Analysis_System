@@ -21,3 +21,8 @@ Demo Video
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=ZrykMfPptm0
 " target="_blank"><img src="http://img.youtube.com/vi/ZrykMfPptm0/0.jpg" 
 alt="Temporal Analysis for Vinyl DJs Demo" width="640" height="360" border="10" /></a>
+
+Report
+----------
+
+A system report/article and disucssion is available via the following link: https://drive.google.com/file/d/1u4JMFOMdMlv354ZY6t8wpNsahnSXC1I7/view?usp=sharing
