@@ -9,12 +9,11 @@ To launch and use the system, simply open $/SYSTEM/GUI.pd in Pure Data.
 
 Notes: 
 
-- You will need to install Audio, This can be done by dragging the folder “aubio” into the Pd Externals directory. See here: https://puredata.info/docs/faq/how-do-i-install-externals-and-help-files
+- You will need to install Aubio, This can be done by dragging the folder “aubio” into the Pd Externals directory. See here: https://puredata.info/docs/faq/how-do-i-install-externals-and-help-files and https://aubio.org/
 
 - You may also need to initilaise aubio in PureData. Create the object “aubio” to initialise the library.
 
 Oliver Clarke - University of York (2021)
- 
  
 Demo Video
 ----------
