@@ -1,0 +1,71 @@
+#N canvas 508 120 1426 1113 12;
+#X obj 334 261 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 334 282 5 0 0 0 - - -;
+#X obj 334 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 367 215 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 334 238 spigot;
+#X obj 261 261 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 261 281 5 0 0 0 - - -;
+#X obj 261 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 294 215 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 261 238 spigot;
+#X obj 237 366 realtime;
+#X floatatom 216 423 15 0 0 0 - - -;
+#X obj 392 365 realtime;
+#X floatatom 371 422 15 0 0 0 - - -;
+#X obj 341 318 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 258 312 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 486 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 303 462 -;
+#X floatatom 303 494 15 0 0 0 - - -;
+#X text 421 495 Difference in ms;
+#X msg 126 530 60000;
+#X floatatom 127 621 15 0 0 0 - - -;
+#X obj 127 581 /;
+#X text 245 623 Calculated BPM;
+#X text 392 244 Alternate Bangs;
+#X text 507 320 RESET System Time;
+#X obj 127 113 inlet;
+#X obj 127 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 126 663 outlet;
+#X obj 408 145 loadbang;
+#X connect 0 0 1 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 1;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 15 0;
+#X connect 7 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 1;
+#X connect 9 0 5 0;
+#X connect 10 0 11 0;
+#X connect 11 0 17 0;
+#X connect 12 0 13 0;
+#X connect 13 0 17 1;
+#X connect 14 0 12 1;
+#X connect 15 0 10 1;
+#X connect 16 0 12 0;
+#X connect 16 0 10 0;
+#X connect 17 0 18 0;
+#X connect 18 0 22 1;
+#X connect 20 0 22 0;
+#X connect 21 0 28 0;
+#X connect 22 0 21 0;
+#X connect 26 0 27 0;
+#X connect 27 0 7 0;
+#X connect 27 0 2 0;
+#X connect 27 0 20 0;
+#X connect 29 0 3 0;

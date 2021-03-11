@@ -1,0 +1,129 @@
+#N canvas 344 83 1043 955 12;
+#X obj 75 117 cnv 5 800 400 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 339 134 cnv 8 8 360 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 597 136 cnv 8 8 360 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 370 159 cnv 15 100 60 empty empty Tempo_Difference_(BPM) 20
+12 1 16 -233017 -262144 0;
+#X obj 406 339 cnv 15 100 60 empty empty Phase_Offset 20 12 1 16 -233017
+-262144 0;
+#X obj 381 372 hradio 20 1 0 9 empty empty empty 0 -8 0 10 -191407
+-262144 -228856 6;
+#X floatatom 446 191 6 0 0 0 - tempoDifference -;
+#X obj 218 127 cnv 15 100 60 empty empty 1 20 30 1 60 -233017 -262144
+0;
+#X obj 659 126 cnv 15 100 60 empty empty 2 20 30 1 60 -233017 -262144
+0;
+#X obj 151 333 cnv 15 100 60 empty empty PHASE 20 12 1 16 -233017 -262144
+0;
+#X obj 105 395 beatcounter;
+#X obj 105 379 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 169 194 cnv 15 100 60 empty empty BPM 20 12 1 16 -233017 -262144
+0;
+#X obj 691 326 cnv 15 100 60 empty empty PHASE 20 12 1 16 -233017 -262144
+0;
+#X obj 645 394 beatcounter;
+#X obj 645 378 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 704 201 cnv 15 100 60 empty empty BPM 20 12 1 16 -233017 -262144
+0;
+#X obj 75 204 BPM;
+#X floatatom 189 222 5 0 0 0 - - Ch1_BPM;
+#X obj 850 210 BPM;
+#X floatatom 724 228 5 0 0 0 - - Ch2_BPM;
+#X text 757 174 Sensitivty;
+#X floatatom 803 193 5 0 0 0 - - -;
+#X text 113 169 Sensitivty;
+#X floatatom 114 187 5 0 0 0 - - -;
+#X obj 238 376 r Ch1_BPM;
+#X obj 778 375 r Ch2_BPM;
+#X obj 316 532 aubio;
+#X text 74 532 Library Used for Temporal Analysis;
+#X obj 75 117 adc~ 1 2;
+#X obj 815 117 adc~ 3 4;
+#X text 74 552 How to Use GUI:;
+#X text 72 624 2 Your Interface must have a minimum of 2 inputs and
+ideally have 4 so that you can use both L&R channels of a stereo input
+for each analysis channel here.;
+#X text 71 673 3 Make sure Audio Input device is set correctly (your
+interface) in Pd's settings.;
+#X text 72 711 4 Turn On DSP in Pd with audio signals coming in and
+the analyser will begin to run.;
+#X text 71 749 5 The Phase of the 4x4 grid can be reset to the downbeat
+by cliking the RESET switch on the left.;
+#X text 543 548 Notes;
+#X text 594 549 - Phase Offset is still in development;
+#X text 71 791 6 The sensitivity of the tempo analyser can be changed
+\, values of 0 - 10 are accepted \, lower values mean the analyser
+is more succeptable to note onsets \, hence is more sensitive.;
+#X text 652 655 https://aubio.org/pd-aubio/;
+#X text 594 633 - The Aubio Library can be found here:;
+#X text 594 570 - There are two BPM calculators in the BPM object which
+can be swapped. The more optimised one is selected currently \, however
+it is less sensitive and gives whole intergers.;
+#X text 327 72 Created by Oliver Clarke - University of York;
+#X obj 210 33 cnv 15 10 10 empty empty Temporal_Analysis_for_DJs 20
+12 1 40 -262144 -33289 0;
+#X text 73 576 1 Make sure "Aubio" is installed as a Pd External \,
+this is simply done by dragging the Aubio folder (see Notes) into your
+Pd External library. Pd may have to be restarted.;
+#N canvas 1515 666 450 300 tempoDifference 0;
+#X obj 33 32 r Ch1_BPM;
+#X obj 103 57 r Ch2_BPM;
+#X floatatom 39 62 5 0 0 0 - - -;
+#X floatatom 103 91 5 0 0 0 - - -;
+#X floatatom 117 206 5 0 0 0 - - -;
+#X obj 117 146 -;
+#X obj 116 173 abs;
+#X obj 185 118 metro 250;
+#X obj 193 75 loadbang;
+#X obj 117 248 s tempoDifference;
+#X text 149 173 Keep Difference Postive;
+#X text 193 55 Init Subtraction to keep it updating;
+#X text 249 249 Send to GUI;
+#X text 61 10 INPUT channels;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 9 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 7 0;
+#X restore 675 715 pd tempoDifference;
+#X text 594 686 - Object to Calculate tempo difference between channels:
+;
+#X text 596 751 - This system is in development and is a proof of concept
+please keep this in mind as it is not 100% accurate due to the limitations
+of real-time analysis.;
+#X obj 84 244 bng 50 250 50 0 empty empty Onset 12 -10 1 10 -262144
+-261682 -1;
+#X obj 818 249 bng 50 250 50 0 empty empty Onset 12 -10 1 10 -262144
+-261682 -1;
+#X text 75 94 Input 1;
+#X text 815 92 Input 2;
+#X text 80 359 Phase Reset;
+#X text 614 354 Phase Reset;
+#X text 74 858 7 The Phase counter can be reset with the reset button
+to the upper left of the counter. This is for use by the performer
+to reset to the downbeat of a song.;
+#X text 591 809 - The Bang coming out of the BPM object is for visual
+feedback to the user that the sytem has detected an onset.;
+#X connect 11 0 10 0;
+#X connect 15 0 14 0;
+#X connect 17 1 48 0;
+#X connect 17 2 18 0;
+#X connect 19 1 20 0;
+#X connect 19 1 49 0;
+#X connect 22 0 19 1;
+#X connect 24 0 17 1;
+#X connect 25 0 10 1;
+#X connect 26 0 14 1;
+#X connect 29 0 17 0;
+#X connect 29 1 17 0;
+#X connect 30 0 19 0;
+#X connect 30 1 19 0;
